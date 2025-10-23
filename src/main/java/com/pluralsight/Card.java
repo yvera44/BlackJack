@@ -36,7 +36,9 @@ public class Card {
         switch (value) {
             case "A":
                 return 11;
-            case "K, Q, J":
+            case "K":
+            case "Q":
+            case "J":
                 return 10;
             default:
                 return Integer.parseInt(value);
@@ -48,4 +50,14 @@ public class Card {
     public void flip(){
         isFaceUp = !isFaceUp;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "suit='" + suit + '\'' +
+                ", value='" + value + '\'' +
+                ", isFaceUp=" + isFaceUp +
+                '}';
+    }
 }
+

@@ -10,7 +10,7 @@ public class Hand {
     }
     // A Card is dealt to the Hand and the Hand is responsible
 // to store the card
-    public void Deal(Card card){
+    public void deal(Card card){
         cards.add(card);
     }
     public int getSize(){
@@ -27,4 +27,24 @@ public class Hand {
         }
         return value;
     }
+
+    @Override
+    public String toString() {
+        return "Hand{" +
+                "cards=" + cards +
+                '}';
+    }
+
+    public static Hand dealHand(int numberOfCards, Deck deck) {
+        Hand hand = new Hand();
+
+        for (int i = 0; i < numberOfCards; i++) {
+            // get a card from the deck
+            Card card = deck.deal();
+            // deal that card to the hand
+            hand.deal(card);
+        }
+        return hand;
+    }
+
 }
