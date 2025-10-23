@@ -7,22 +7,25 @@ import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
 
-        players();
+        List<String> playerNames = getPlayerNames();
+        for (String playerName : playerNames) {
+            System.out.println(playerName);
+        }
 
         Deck deck = new Deck();
-        Hand hand1 = new Hand();
+        Hand hand = new Hand();
 // deal 5 cards
         for (int I = 0; I < 5; I++) {
 // get a card from the deck
             Card card = deck.deal();
 // deal that card to the hand
-            hand1.Deal(card);
+            hand.Deal(card);
         }
-        int handValue = hand1.getValue();
+        int handValue = hand.getValue();
         System.out.println("This hand is worth " + handValue);
     }
 
-    public static List<String> players() {
+    public static List<String> getPlayerNames() {
         Scanner scanner = new Scanner(System.in);
         List<String> playerList = new ArrayList<>();
 
@@ -32,10 +35,11 @@ public class Application {
 
         for (int i = 0; i < playerCount; i++) {
 
-            System.out.print("Enter player names" + (i + 1) + ": ");
+            System.out.print("Enter player name " + (i + 1) + ": ");
             String playerName = scanner.nextLine();
 
             playerList.add(playerName);
+
 
         } return playerList;
     }
